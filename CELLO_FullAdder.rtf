@@ -1,0 +1,47 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1561\cocoasubrtf400
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw16836\paperh11904\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 module FullAdder(output Cout,Sumout input a,b,Cin)\
+ wire Carry1,Carry2,CarryOut,Sum,SumOut\
+   \
+   assign Carry1 = a & b;\
+xor (Sum1,a,b); \
+xor (SumOut,Cin,Sum);\
+and (Carry2,Cin,Sum);\
+or (CarryOut,Carry2,Carry1);\
+\
+\
+\
+\
+always@(A,B,Cin)\
+  begin\
+   case(\{A,B,Cin\})\
+    3'b000: \{Sumout\} = 1'b0;\
+    3'b001: \{Sumout\} = 1'b1;\
+    3'b010: \{Sumout\} = 1'b1;\
+    3'b011: \{Sumout\} = 1'b0;\
+    3'b100: \{Sumout\} = 1'b1;\
+    3'b101: \{Sumout\} = 1'b0;\
+    3'b110: \{Sumout\} = 1'b0;\
+    3'b111: \{Sumout\} = 1'b1;\
+   endcase\
+\
+  begin\
+   case(\{A,B,Cin\})\
+    3'b000: \{Cout\} = 1'b0;\
+    3'b001: \{Cout\} = 1'b0;\
+    3'b010: \{Cout\} = 1'b0;\
+    3'b011: \{Cout\} = 1'b1;\
+    3'b100: \{Cout\} = 1'b0;\
+    3'b101: \{Cout\} = 1'b1;\
+    3'b110: \{Cout\} = 1'b1;\
+    3'b111: \{Cout\} = 1'b1;\
+   endcase\
+  end\
+endmodule\
+\
+}
