@@ -9,7 +9,7 @@
  wire Carry1,Carry2,CarryOut,Sum,SumOut\
    \
    assign Carry1 = a & b;\
-xor (Sum1,a,b); \
+xor (Sum,a,b); \
 xor (SumOut,Cin,Sum);\
 and (Carry2,Cin,Sum);\
 or (CarryOut,Carry2,Carry1);\
@@ -17,9 +17,9 @@ or (CarryOut,Carry2,Carry1);\
 \
 \
 \
-always@(A,B,Cin)\
+always@(a,b,Cin)\
   begin\
-   case(\{A,B,Cin\})\
+   case(\{a,b,Cin\})\
     3'b000: \{Sumout\} = 1'b0;\
     3'b001: \{Sumout\} = 1'b1;\
     3'b010: \{Sumout\} = 1'b1;\
@@ -31,7 +31,7 @@ always@(A,B,Cin)\
    endcase\
 \
   begin\
-   case(\{A,B,Cin\})\
+   case(\{a,b,Cin\})\
     3'b000: \{Cout\} = 1'b0;\
     3'b001: \{Cout\} = 1'b0;\
     3'b010: \{Cout\} = 1'b0;\
